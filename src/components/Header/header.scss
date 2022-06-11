@@ -1,0 +1,28 @@
+.header{
+	&__container{
+		@apply flex justify-around p-2 container mx-auto;
+	}
+	&__logo{
+		@apply flex items-center w-44 justify-around text-xl;
+		font-weight: 700;
+		img{
+			width: 50px;
+			height: 50px;
+		}
+	}
+	&__cart{
+		@apply flex items-center;
+		img{
+			width: 40px;
+			height: 40px;
+			margin-right: 10px;
+		}
+		div{
+			@apply text-center pl-3 text-xs text-white;
+			background: no-repeat url(../../../public/assets/icons/cart_num.svg);
+			background-position: center center;
+			background-size: cover;
+			width: 50px;
+		}
+	}
+}
