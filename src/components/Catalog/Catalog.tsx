@@ -6,7 +6,7 @@ const Catalog = () => {
     <div className="catalog">
       <div className="catalog__types">
         <div className="catalog__types-item">
-          <h3 className="text-2xl">
+          <h3 className="sm:text-2xl text-xl">
             <span className="font-bold">МУЖСКАЯ</span> КОЛЛЕКЦИЯ
           </h3>
           <p className="mt-4">Обувь, полуверы, костюмы</p>
@@ -15,7 +15,7 @@ const Catalog = () => {
           </div>
         </div>
         <div className="catalog__types-item">
-          <h3 className="text-2xl">
+          <h3 className="sm:text-2xl text-xl">
             <span className="font-bold">ЖЕНСКАЯ</span> КОЛЛЕКЦИЯ
           </h3>
           <p className="mt-4">Обувь, полуверы, костюмы</p>
@@ -25,30 +25,6 @@ const Catalog = () => {
         </div>
       </div>
       <div className="catalog__cards">
-        <div className="catalog__cards-item">
-          <span className="text-right text-green-800">9 $</span>
-          <img src="./assets/images/boots.png" />
-          <p className="uppercase my-4">Ботинки</p>
-          <div className="catalog__cards-btn">
-            В корзину
-          </div>
-        </div>
-        <div className="catalog__cards-item">
-          <span className="text-right text-green-800">9 $</span>
-          <img src="./assets/images/boots.png" />
-          <p className="uppercase my-4">Ботинки</p>
-          <div className="catalog__cards-btn">
-            В корзину
-          </div>
-        </div>
-        <div className="catalog__cards-item">
-          <span className="text-right text-green-800">9 $</span>
-          <img src="./assets/images/boots.png" />
-          <p className="uppercase my-4">Ботинки</p>
-          <div className="catalog__cards-btn">
-            В корзину
-          </div>
-        </div>
         <div className="catalog__cards-item">
           <span className="text-right text-green-800">9 $</span>
           <img src="./assets/images/boots.png" />
