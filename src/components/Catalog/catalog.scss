@@ -1,0 +1,20 @@
+.catalog{
+	&__types{
+		@apply container h-[250px] mx-auto flex justify-center gap-4 pt-5;
+		&-item{
+			@apply relative flex-grow flex flex-col items-center justify-center text-center;
+		}
+		&-btn{
+			@apply flex items-center justify-center w-[80px] h-[30px] bg-stone-500 mt-7 cursor-pointer hover:bg-stone-600;
+		}
+	}
+	&__cards{
+		@apply container mx-auto flex flex-wrap justify-center my-4;
+		&-item{
+			@apply flex flex-col items-center justify-center basis-[250px] m-3 p-4 shadow-lg border-solid border-[1px] border-opacity-50 border-gray-400 rounded-md hover:shadow-2xl;
+		}
+		&-btn{
+			@apply border-solid border-[1px] border-gray-500 rounded-md p-3 cursor-pointer hover:bg-stone-500;
+		}
+	}
+}
