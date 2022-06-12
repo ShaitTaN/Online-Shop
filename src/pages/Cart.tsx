@@ -4,8 +4,8 @@ const Cart = () => {
   return (
     <div className="my-5">
       <div className="container mx-auto">
-        <div className="flex h-[150px] items-center justify-around rounded-2xl shadow-md my-4 relative">
-          <img className="h-full" src="./assets/images/boots.png" />
+        <div className="flex h-[350px] p-5 items-center justify-around rounded-2xl shadow-md my-4 relative flex-col sm:flex-row sm:h-[150px]">
+          <img className="sm:h-full sm:w-auto w-[300px]" src="./assets/images/boots.png" />
           <p>БОТИНКИ</p>
           <span>8 $</span>
           <div className="flex items-center">
