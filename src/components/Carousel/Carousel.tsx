@@ -7,8 +7,10 @@ const Carousel = () => {
     { id: 1, image: "./assets/images/boots.png", price: 50, title: "boots" },
     { id: 2, image: "./assets/images/boots.png", price: 50, title: "boots" },
     { id: 3, image: "./assets/images/boots.png", price: 50, title: "boots" },
+    { id: 4, image: "./assets/images/boots.png", price: 50, title: "boots" },
   ]);
   const [currentSlide, setCurrentSlide] = React.useState(0);
+	const ref = React.useRef(null)
 
 	const changeSlide = (index: number) => {
 		setCurrentSlide(index)
@@ -16,10 +18,10 @@ const Carousel = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="w-[500px] h-[350px] relative overflow-hidden">
+      <div className="w-[310px] h-[280px] relative overflow-hidden sm:w-[500px] sm:h-[350px]">
         <div
-          className={`absolute flex h-full left-0 w-[5000px] transition duration-300`}
-					style={{transform: `translateX(${currentSlide*-500}px)`}}
+          className={`absolute flex h-full left-0 w-[${products.length * 310}px] sm:w-[${products.length * 500}px] transition duration-300`}
+					style={{transform: `translateX(${currentSlide*(-100/products.length)}%)`}}
         >
           {products.map((product) => (
             <CarouselItem

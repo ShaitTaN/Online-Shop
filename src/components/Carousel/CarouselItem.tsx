@@ -3,7 +3,7 @@ import { IProduct } from "../../models/IProduct";
 
 const CarouselItem: FC<IProduct> = ({price, image}) => {
   return (
-    <div className="relative w-[500px]">
+    <div className="relative w-[310px] sm:w-[500px]">
       <img src={image} />
       <div className="absolute right-0 top-8 flex flex-col text-right">
         <span className="line-through">80 $</span>
