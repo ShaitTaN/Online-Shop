@@ -1,7 +1,22 @@
 import React from "react";
-import './catalog.scss'
+import { storeApi } from "../../services/StoreService";
+import "./catalog.scss";
+import CatalogItem from "./CatalogItem";
+
+type categories = "men's clothing" | "women's clothing";
 
 const Catalog = () => {
+  const [category, setCategory] = React.useState<categories>("men's clothing");
+  const {
+    data: products,
+    isLoading,
+    isFetching,
+  } = storeApi.useGetProductsFromQuery(category);
+
+  const changeCategory = (category: categories) => {
+    setCategory(category);
+  };
+
   return (
     <div className="catalog">
       <div className="catalog__types">
@@ -10,7 +25,10 @@ const Catalog = () => {
             <span className="font-bold">МУЖСКАЯ</span> КОЛЛЕКЦИЯ
           </h3>
           <p className="mt-4">Обувь, полуверы, костюмы</p>
-          <div className="catalog__types-btn">
+          <div
+            onClick={() => changeCategory("men's clothing")}
+            className="catalog__types-btn"
+          >
             <img src="./assets/icons/arrow.svg" />
           </div>
         </div>
@@ -19,20 +37,28 @@ const Catalog = () => {
             <span className="font-bold">ЖЕНСКАЯ</span> КОЛЛЕКЦИЯ
           </h3>
           <p className="mt-4">Обувь, полуверы, костюмы</p>
-          <div className="catalog__types-btn">
+          <div
+            onClick={() => changeCategory("women's clothing")}
+            className="catalog__types-btn"
+          >
             <img src="./assets/icons/arrow.svg" />
           </div>
         </div>
       </div>
       <div className="catalog__cards">
-        <div className="catalog__cards-item">
-          <span className="text-right text-green-800">9 $</span>
-          <img src="./assets/images/boots.png" />
-          <p className="uppercase my-4">Ботинки</p>
-          <div className="catalog__cards-btn">
-            В корзину
-          </div>
-        </div>
+        {isFetching ? (
+          <h1 className="text-2xl text-center">Loading...</h1>
+        ) : (
+          products?.map((item) => (
+            <CatalogItem
+              id={item.id}
+              image={item.image}
+              price={item.price}
+              title={item.title}
+              key={item.id}
+            />
+          ))
+        )}
       </div>
     </div>
   );

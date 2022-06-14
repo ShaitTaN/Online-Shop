@@ -7,7 +7,7 @@ const Main = () => {
     <div className="mt-5">
       <div className="container mx-auto flex flex-col items-center">
         <h3 className="text-2xl sm:text-3xl">Большая распродажа</h3>
-        <h2 className="text-4xl font-bold sm:text-5xl">Скидки до 90%</h2>
+        <h2 className="text-4xl font-bold sm:text-5xl mb-3">Скидки до 90%</h2>
         <Carousel />
       </div>
 			<div className="bg-gray-900 text-center text-white mt-8 py-9">

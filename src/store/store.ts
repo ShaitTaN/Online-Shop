@@ -1,7 +1,13 @@
+import { cartSlice } from './reducers/Cart';
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import { storeApi } from '../services/StoreService';
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+		cart: cartSlice.reducer,
+		[storeApi.reducerPath]: storeApi.reducer,
+	},
+	middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(storeApi.middleware)
 });
 
 export type AppDispatch = typeof store.dispatch;
