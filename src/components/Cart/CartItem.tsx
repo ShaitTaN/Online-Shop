@@ -1,25 +1,43 @@
 import React, { FC } from "react";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { IProduct } from "../../models/IProduct";
+import { cartSlice } from "../../store/reducers/CartSlice";
 
 const CartItem:FC<IProduct> = (props) => {
+	const dispatch = useAppDispatch()
+	const {removeAllFromCart, addToCart, removeFromCart} = cartSlice.actions
+	const { products } = useAppSelector((state) => state.cart);
+
+	const count = products.filter(item => item.id === props.id).length
+
+	const removeAll = (id: number) => {
+		dispatch(removeAllFromCart(id))
+	}
+	const add = (product: IProduct) => {
+		dispatch(addToCart(product))
+	}
+	const remove = (id: number) => {
+		dispatch(removeFromCart(id))
+	}
+
   return (
-    <div className="flex h-[350px] p-5 items-center justify-around rounded-2xl shadow-md my-4 relative flex-col sm:flex-row sm:h-[150px]">
+    <div className="cart__item">
       <img
-        className="sm:h-full h-[150px] sm:w-auto w-[100px]"
+        className="sm:h-full h-[150px] sm:w-[80px] w-[100px]"
         src={props.image}
       />
       <p className="w-[300px]">{props.title}</p>
       <span>{props.price} $</span>
       <div className="flex items-center">
-        <div className="border-solid border-[1px] border-gray-500 rounded-full cursor-pointer w-[40px] h-[40px] flex items-center justify-center p-2 hover:bg-gray-500">
+        <div onClick={() => add(props)} className="cart__item-btn">
           <img src="./assets/icons/plus.svg" />
         </div>
-        <div className="mx-4">1</div>
-        <div className="border-solid border-[1px] border-gray-500 rounded-full cursor-pointer w-[40px] h-[40px] flex items-center justify-center p-2 hover:bg-gray-500">
+        <div className="mx-4">{count}</div>
+        <div onClick={() => remove(props.id)} className="cart__item-btn">
           <img src="./assets/icons/minus.svg" />
         </div>
       </div>
-      <div className="absolute right-2 top-2 cursor-pointer hover:font-bold">
+      <div onClick={() => removeAll(props.id)} className="cart__item-close">
         X
       </div>
     </div>

@@ -1,11 +1,18 @@
 import React from "react";
 import { useAppSelector } from "../../hooks/hooks";
+import { IProduct } from "../../models/IProduct";
 import CartItem from "./CartItem";
+import './cart.scss'
 
 const CartList = () => {
-	const {products} = useAppSelector(state => state.cart)
+  const { products } = useAppSelector((state) => state.cart);
 
-	const uniqProducts = products.filter((item, ind) => products.indexOf(item) === ind)
+  const uniqProducts = products?.reduce((result, item) => {
+    if (!result.find((i) => i.id == item.id)) {
+      result.push(item);
+    }
+    return result;
+  }, [] as IProduct[]);
 
   return (
     <div className="container mx-auto">
