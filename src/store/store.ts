@@ -1,4 +1,4 @@
-import { cartSlice } from './reducers/Cart';
+import { cartSlice } from './reducers/CartSlice';
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import { storeApi } from '../services/StoreService';
 

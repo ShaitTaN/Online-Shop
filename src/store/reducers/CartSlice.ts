@@ -1,4 +1,4 @@
-import { IProduct } from './../../models/IProduct';
+import { IProduct } from '../../models/IProduct';
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState = {

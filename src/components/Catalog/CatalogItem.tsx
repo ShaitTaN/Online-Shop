@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { IProduct } from "../../models/IProduct";
-import { cartSlice } from "../../store/reducers/Cart";
+import { cartSlice } from "../../store/reducers/CartSlice";
 
 const CatalogItem:FC<IProduct> = (props) => {
 	const {addToCart} = cartSlice.actions
