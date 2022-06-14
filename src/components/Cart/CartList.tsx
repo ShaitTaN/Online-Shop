@@ -15,7 +15,7 @@ const CartList = () => {
   }, [] as IProduct[]);
 
   return (
-    <div className="container mx-auto">
+    <div>
       {uniqProducts.map((item) => (
         <CartItem
           key={item.id}
