@@ -1,5 +1,6 @@
 import React from "react";
 import { storeApi } from "../../services/StoreService";
+import Loader from "../Loader";
 import "./catalog.scss";
 import CatalogItem from "./CatalogItem";
 
@@ -9,7 +10,6 @@ const Catalog = () => {
   const [category, setCategory] = React.useState<categories>("men's clothing");
   const {
     data: products,
-    isLoading,
     isFetching,
   } = storeApi.useGetProductsFromQuery(category);
 
@@ -47,7 +47,7 @@ const Catalog = () => {
       </div>
       <div className="catalog__cards">
         {isFetching ? (
-          <h1 className="text-2xl text-center">Loading...</h1>
+          Array(4).fill('').map(item => <Loader/>)
         ) : (
           products?.map((item) => (
             <CatalogItem
