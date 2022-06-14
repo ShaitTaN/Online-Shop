@@ -47,7 +47,7 @@ const Catalog = () => {
       </div>
       <div className="catalog__cards">
         {isFetching ? (
-          Array(4).fill('').map(item => <Loader/>)
+          Array(4).fill('').map((item,i) => <Loader key={i}/>)
         ) : (
           products?.map((item) => (
             <CatalogItem
