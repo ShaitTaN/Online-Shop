@@ -14,7 +14,6 @@ const Carousel = () => {
 
   React.useEffect(() => {
     const interval = setInterval(() => {
-			console.log('interva')
 			setCurrentSlide(prev => prev > 2 ? 0 : prev + 1)
     }, 3000);
     return () => clearInterval(interval);

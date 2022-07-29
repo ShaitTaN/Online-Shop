@@ -20,7 +20,7 @@ const Cart = () => {
       <CartList />
       {products.length > 0 ? (
         <>
-          <div className="mb-2 text-right border-b border-solid border-gray-500">
+          <div className="mb-2 text-right border-b border-solid border-gray-500 pr-4">
             Итого: {total.toFixed(2)} $
           </div>
           <Link onClick={pay} to='/pay' className="block cursor-pointer w-full text-center p-4 bg-slate-400 hover:bg-slate-500">Оплатить</Link>
